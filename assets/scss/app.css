@@ -120,6 +120,7 @@ body {
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
   -webkit-appearance: none;
+  -moz-appearance: none;
   -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
