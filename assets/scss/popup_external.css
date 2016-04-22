@@ -1821,6 +1821,15 @@ body {
     -ms-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
     -o-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
     box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2; }
+  .ks_input.error, .ks_select.error {
+    outline: 0;
+    border-color: #ff7076;
+    border-top-color: #ff5c61;
+    -webkit-box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5);
+    -moz-box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5);
+    -ms-box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5);
+    -o-box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5);
+    box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5); }
 
 .select_container {
   background: url("/kasipay_design/assets/img/arrow.svg") no-repeat;

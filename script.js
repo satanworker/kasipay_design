@@ -1989,24 +1989,24 @@ document.addEventListener('DOMContentLoaded', function(event) {
         '</div> ' + //popup title end
         '<form action="#" class="kasipay_body_popup">' +
         '<div class="input_container">' +
-        '<input type="email" class="ks_input email" placeholder="Email"> ' +
+        '<input type="email" class="ks_input email" placeholder="Email" name="email" required> ' +
         '</div>' + //input container
         '<div class="select_container">' +
-        '<select class="ks_select inactive provider">' +
+        '<select class="ks_select inactive provider" name="provider" required>' +
         '<option disabled selected>Select your provider</option>' +
         '<option>Typo Pesa</option>' +
         '<option>M-Pesa</option>' +
         '</select>' +
         '</div>' + //select container
         '<div class="input_container">' +
-        '<input type="number" class="ks_input phone" placeholder="Phone"/>' +
+        '<input type="number" class="ks_input phone" placeholder="Phone" name="phone" required/>' +
         '</div>' +
         '<div class="input_container">' +
-        '<input type="text" class="ks_input password" placeholder="Password"/>' +
+        '<input type="text" class="ks_input password" placeholder="Password" name="password" required/>' +
         '</div>' +
         '<div class="input_container switcher_container">' +
         '<label>' +
-        '<input type="checkbox" class="js-switch" checked>' +
+        '<input type="checkbox" class="js-switch" checked name="remember">' +
         '<span class="text">Remember me</span>' +
         '</label>' +
         '</div>' +
@@ -2023,7 +2023,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     //events and calls
-
     var ks_timeout;
     button.addEventListener('click', function(event) {
         popup.classList.add('active');
@@ -2033,4 +2032,47 @@ document.addEventListener('DOMContentLoaded', function(event) {
     })
     var elem = document.querySelector('.js-switch');
     var init = new Switchery(elem, { size: 'small' });
+
+    document.querySelector('.provider').addEventListener('change', function() {
+        this.classList.remove('inactive');
+    })
+
+    document.querySelector('.kasipay_body_popup').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var error = false;
+        var ar_elements = [this.email, this.password, this.provider, this.phone];
+        if(!this.email.value.length) {
+            error = true;
+            this.email.classList.add('error');
+        }
+        else {
+            error = false;
+            this.email.classList.remove('error');
+        }
+        if(!this.password.value.length) {
+            error = true;
+            this.password.classList.add('error');
+        }
+        else {
+            error = false;
+            this.password.classList.remove('error');
+        }
+        if(!this.phone.value.length) {
+            this.phone.classList.add('error');
+            error = true;
+        }
+        else {
+            this.phone.classList.remove('error');
+            error = false;
+        }
+        if(this.provider.classList.contains('inactive')) {
+            this.provider.classList.add('error');
+            error = true;
+        }
+        else {
+            this.provider.classList.remove('error');
+            error = false;
+        }
+        console.log(error)
+    })
 });
