@@ -3,55 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>kasipay_design</title>
-    <link href='assets/scss/switchery.css' rel='stylesheet' type='text/css'>
-    <link href='assets/scss/magic.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/scss/app.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="js-square"></div>
-<div class="relative_container">
-    <a href="#" class="ks_button pay">Pay with Kasipay</a>
-</div><!-- / raltive -->
-
-<div class="popup" id="pay_popup">
-    <a href="#" class="cross"></a>
-    <div class="popup_title">
-        <p class="title">Title</p>
-        <p class="added">Here goes some messages</p>
-    </div>
-    <form action="#" class="body_popup">
-        <div class="input_container">
-            <input type="text" class="ks_input email" placeholder="Email"/>
-        </div><!-- / input container -->
-        <div class="input_group">
-            <div class="select_container">
-                <select class="ks_select inactive provider">
-                    <option disabled selected="selected">Select provider</option>
-                    <option value="">Test</option>
-                    <option value="">test</option>
-                </select>
-            </div><!-- / input container -->
-            <div class="input_container">
-                <input type="text" class="ks_input phone" placeholder="Phone"/>
-            </div><!-- / input container -->
-            <div class="input_container">
-                <input type="text" class="ks_input password" placeholder="Password"/>
-            </div><!-- / input container -->
-        </div><!-- / input group -->
-        <div class="input_container switcher_container">
-            <label>
-                <input type="checkbox" class="js-switch" checked />
-                <span class="text">Remeber me</span>
-            </label>
-        </div>
-        <div class="input_container">
-            <input type="submit" value="Submit" class="ks_button green submit"/>
-        </div>
-    </form>
-</div><!-- / popup -->
-<div class="popup_background"></div>
-<script src="vendor/switchery.js"></script>
-<script src="script.js"></script>
+    <script src="script.js" id="kasipay_script"></script>
 </body>
 </html>

@@ -1,3 +1,68 @@
+/*
+ *
+ * Main stylesheet for Switchery.
+ * http://abpetkov.github.io/switchery/
+ *
+ */
+
+/* Switchery defaults. */
+
+.switchery {
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  height: 30px;
+  position: relative;
+  vertical-align: middle;
+  width: 50px;
+
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: content-box;
+  background-clip: content-box;
+}
+
+.switchery > small {
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  height: 30px;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+/* Switchery sizes. */
+
+.switchery-small {
+  border-radius: 20px;
+  height: 20px;
+  width: 33px;
+}
+
+.switchery-small > small {
+  height: 20px;
+  width: 20px;
+}
+
+.switchery-large {
+  border-radius: 40px;
+  height: 40px;
+  width: 66px;
+}
+
+.switchery-large > small {
+  height: 40px;
+  width: 40px;
+}
+
+//magic
+
 @charset "UTF-8";/*!
 Magic - Ver 1.1.0 - http://minimamente.com
 Licensed under the MIT license
@@ -886,7 +951,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @-webkit-keyframes rotateDown {
   0% {
-  	opacity: 1;
+    opacity: 1;
     -webkit-transform-origin: 0 0;
     -webkit-transform: perspective(800px) rotateX(0deg) translateZ(0px);
   }
@@ -899,7 +964,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @keyframes rotateDown {
   0% {
-  	opacity: 1;
+    opacity: 1;
     transform-origin: 0 0;
     transform: perspective(800px) rotateX(0deg) translateZ(0px);
   }
@@ -912,7 +977,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @-webkit-keyframes rotateLeft {
   0% {
-  	opacity: 1;
+    opacity: 1;
     -webkit-transform-origin: 0 0;
     -webkit-transform: perspective(800px) rotateY(0deg) translateZ(0px);
   }
@@ -925,7 +990,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @keyframes rotateLeft {
   0% {
-  	opacity: 1;
+    opacity: 1;
     transform-origin: 0 0;
     transform: perspective(800px) rotateY(0deg) translateZ(0px);
   }
@@ -938,7 +1003,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @-webkit-keyframes rotateRight {
   0% {
-  	opacity: 1;
+    opacity: 1;
     -webkit-transform-origin: 0 0;
     -webkit-transform: perspective(800px) rotateY(0deg) translate3d(0px);
   }
@@ -951,7 +1016,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @keyframes rotateRight {
   0% {
-  	opacity: 1;
+    opacity: 1;
     transform-origin: 0 0;
     transform: perspective(800px) rotateY(0deg) translate3d(0px);
   }
@@ -964,7 +1029,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @-webkit-keyframes rotateUp {
   0% {
-  	opacity: 1;
+    opacity: 1;
     -webkit-transform-origin: 0 0;
     -webkit-transform: perspective(800px) rotateX(0deg) translateZ(0px);
   }
@@ -977,7 +1042,7 @@ Copyright (c) 2014 Christian Pucci
 }
 @keyframes rotateUp {
   0% {
-  	opacity: 1;
+    opacity: 1;
     transform-origin: 0 0;
     transform: perspective(800px) rotateX(0deg) translateZ(0px);
   }
@@ -1375,7 +1440,7 @@ Copyright (c) 2014 Christian Pucci
   }
 
   100% {
-  	opacity: 1;
+    opacity: 1;
     -webkit-transform-origin: 50% 50%;
     -webkit-transform: scale(1, 1);
   }
@@ -1394,7 +1459,7 @@ Copyright (c) 2014 Christian Pucci
   }
 
   100% {
-  	opacity: 1;
+    opacity: 1;
     transform-origin: 50% 50%;
     transform: scale(1, 1);
   }
@@ -1923,7 +1988,7 @@ Copyright (c) 2014 Christian Pucci
     -webkit-transform-origin: 50% 0%;
     -webkit-transform: perspective(800px) rotateX(-90deg);
   }
-  
+
   50% {
     opacity: 1;
     -webkit-transform-origin: 50% 0%;
@@ -1942,7 +2007,7 @@ Copyright (c) 2014 Christian Pucci
     transform-origin: 50% 0%;
     transform: perspective(800px) rotateX(-90deg);
   }
-  
+
   50% {
     opacity: 1;
     transform-origin: 50% 0%;
@@ -1961,19 +2026,19 @@ Copyright (c) 2014 Christian Pucci
     -webkit-transform-origin: 100% 100%;
     -webkit-transform: perspective(800px) rotateX(0deg) rotateY(0deg);
   }
-  
+
   20% {
-  	opacity: 1;
-  	-webkit-transform-origin: 100% 100%;
-  	-webkit-transform: perspective(800px) rotateX(0deg) rotateY(10deg);
+    opacity: 1;
+    -webkit-transform-origin: 100% 100%;
+    -webkit-transform: perspective(800px) rotateX(0deg) rotateY(10deg);
   }
-  
+
   30% {
     opacity: 1;
     -webkit-transform-origin: 0% 100%;
     -webkit-transform: perspective(800px) rotateX(0deg) rotateY(0deg);
   }
-  
+
   40% {
     opacity: 1;
     -webkit-transform-origin: 0% 100%;
@@ -1992,19 +2057,19 @@ Copyright (c) 2014 Christian Pucci
     transform-origin: 100% 100%;
     transform: perspective(800px) rotateX(0deg) rotateY(0deg);
   }
-  
+
   20% {
-  	opacity: 1;
-  	transform-origin: 100% 100%;
-  	transform: perspective(800px) rotateX(0deg) rotateY(10deg);
+    opacity: 1;
+    transform-origin: 100% 100%;
+    transform: perspective(800px) rotateX(0deg) rotateY(10deg);
   }
-  
+
   30% {
     opacity: 1;
     transform-origin: 0% 100%;
     transform: perspective(800px) rotateX(0deg) rotateY(0deg);
   }
-  
+
   40% {
     opacity: 1;
     transform-origin: 0% 100%;
@@ -2223,5 +2288,214 @@ Copyright (c) 2014 Christian Pucci
     opacity: 1;
     transform-origin: 0% 50%;
     transform: scale(1) translate(0%, 0%);
+  }
+}
+
+//styles
+
+
+$green: #6FCA9C;
+$domain: '/kasipay_design/assets/';
+
+body {
+  font-family: Roboto, Arial;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.ks_button {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  background: linear-gradient(to top, #4A90E2, rgba(74, 144, 226, 0.6));
+  padding: 9px 33px;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 5px;
+  position: relative;
+  animation-duration: .35s;
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.53);
+  border: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  &:active {
+    background: linear-gradient(to top, #4A90E2, rgba(#568AC7, 1));
+  }
+  &.green {
+    background: linear-gradient(to top, $green, rgba($green, 0.6));
+    &:active {
+      background: linear-gradient(to top, $green, rgba($green, 1));
+    }
+  }
+}
+//.ks_button
+.popup {
+  display: none;
+  &.active {
+    display: block;
+  }
+  .ks_cross {
+    width: 22px;
+    height: 23px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: url($domain + 'img/cross.png') no-repeat;
+    background-size: cover;
+  }
+  position: fixed;
+  top: 50%;
+  border-radius: 6px;
+  -ms-box-shadow: 0 0 0 1px rgba(14, 41, 57, .12), 0 2px 5px rgba(14, 41, 57, .44), inset 0 -1px 2px rgba(14, 41, 57, .15);
+  -o-box-shadow: 0 0 0 1px rgba(14, 41, 57, .12), 0 2px 5px rgba(14, 41, 57, .44), inset 0 -1px 2px rgba(14, 41, 57, .15);
+  box-shadow: 0 0 0 1px rgba(14, 41, 57, .12), 0 2px 5px rgba(14, 41, 57, .44), inset 0 -1px 2px rgba(14, 41, 57, .15);
+  background-color: none;
+  width: 100%;
+  max-width: 300px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  margin: -210px auto 0 auto;
+  overflow: hidden;
+  .switcher_container {
+    color: #5b5b65;
+    font-size: 15px;
+    padding-bottom: 15px;
+    span.text {
+      margin-left: 5px;
+    }
+  }
+  .popup_title {
+    background: #f0f0f2;
+    padding: 15px 0;
+    border-bottom: 1px solid #d3d3d4;
+
+    -webkit-border-radius: 7px 7px 0 0;
+    -moz-border-radius: 7px 7px 0 0;
+    -ms-border-radius: 7px 7px 0 0;
+    -o-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+    -webkit-box-shadow: 0 1px 0 #fff;
+    -moz-box-shadow: 0 1px 0 #fff;
+    -ms-box-shadow: 0 1px 0 #fff;
+    -o-box-shadow: 0 1px 0 #fff;
+    box-shadow: 0 1px 0 #fff;
+    p {
+      padding-bottom: 5px;
+      margin: 0;
+      font-size: 17px;
+    }
+    .title {
+      font-weight: 700;
+      color: #000;
+    }
+    .added {
+      color: #5b5b65;
+      font-size: 15px;
+    }
+  }
+  .kasipay_body_popup {
+    background: #f2f6f9;
+    background: -webkit-linear-gradient(#fff, #f2f6f9);
+    background: linear-gradient(#fff, #f2f6f9);
+    padding: 15px 25px;
+  }
+  .submit {
+    //text-transform: uppercase;
+    width: 100%;
+    font-weight: 700;
+  }
+}
+//.popup
+.ks_input, .ks_select {
+  outline: none;
+  width: 100%;
+  height: 37px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  padding: 0 6px 2px 29px;
+  margin: 0 0 20px 0;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 15px;
+  color: #000;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #cececf;
+  border-top-color: #b5b5b6;
+  border-bottom-color: #dededf;
+  -webkit-box-shadow: inset 0 1px 1px rgba(124, 124, 127, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 4px rgba(86, 149, 219, 0);
+  -moz-box-shadow: inset 0 1px 1px rgba(124, 124, 127, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 4px rgba(86, 149, 219, 0);
+  -ms-box-shadow: inset 0 1px 1px rgba(124, 124, 127, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 4px rgba(86, 149, 219, 0);
+  -o-box-shadow: inset 0 1px 1px rgba(124, 124, 127, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 4px rgba(86, 149, 219, 0);
+  box-shadow: inset 0 1px 1px rgba(124, 124, 127, 0.1), 0 1px 0 rgba(255, 255, 255, 0.7), 0 0 4px rgba(86, 149, 219, 0);
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: border-color .15s linear, box-shadow .15s linear;
+  -moz-transition: border-color .15s linear, box-shadow .15s linear;
+  -ms-transition: border-color .15s linear, box-shadow .15s linear;
+  -o-transition: border-color .15s linear, box-shadow .15s linear;
+  transition: border-color .15s linear, box-shadow .15s linear;
+  &.email {
+    background: url($domain + 'img/letter.svg') no-repeat;
+    background-size: 17px;
+    background-position: 7px 11px;
+  }
+  &.provider {
+    background: url($domain + 'img/provider.svg') no-repeat;
+    background-size: 16px 17px;
+    background-position: 7px 10px;
+  }
+  &.phone {
+    background: url($domain + 'img/phone.svg') no-repeat;
+    background-size: 17px 17px;
+    background-position: 7px 10px;
+  }
+  &.password {
+    background: url($domain + 'img/tool.svg') no-repeat;
+    background-size: 17px 17px;
+    background-position: 7px 10px;
+  }
+  &:focus {
+    border-color: #7caadd;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
+    -moz-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
+    -ms-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
+    -o-box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
+    box-shadow: inset 0 1px 1px rgba(76, 107, 153, 0.15), 0 1px 0 rgba(255, 255, 255, 0), 0 0 6px #4A90E2;
+  }
+}
+.select_container {
+  background: url($domain + 'img/arrow.svg') no-repeat;
+  background-position: top 15px right 10px;
+  background-size: 14px 7px;
+}
+.ks_select {
+  &.inactive {
+    color: #A9A9A9;
   }
 }
