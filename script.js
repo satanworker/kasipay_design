@@ -2039,40 +2039,36 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     document.querySelector('.kasipay_body_popup').addEventListener('submit', function(event) {
         event.preventDefault();
-        var error = false;
-        var ar_elements = [this.email, this.password, this.provider, this.phone];
+
         if(!this.email.value.length) {
-            error = true;
             this.email.classList.add('error');
         }
         else {
-            error = false;
             this.email.classList.remove('error');
         }
         if(!this.password.value.length) {
-            error = true;
             this.password.classList.add('error');
         }
         else {
-            error = false;
             this.password.classList.remove('error');
         }
         if(!this.phone.value.length) {
             this.phone.classList.add('error');
-            error = true;
         }
         else {
             this.phone.classList.remove('error');
-            error = false;
         }
         if(this.provider.classList.contains('inactive')) {
             this.provider.classList.add('error');
-            error = true;
         }
         else {
             this.provider.classList.remove('error');
-            error = false;
         }
-        console.log(error)
+        if(document.getElementsByClassName('error').length) {
+           alert('error')
+        }
+        else {
+            alert('submit');
+        }
     })
 });
