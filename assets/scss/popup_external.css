@@ -1655,12 +1655,12 @@ Copyright (c) 2014 Christian Pucci
     transform: scale(1) translate(0%, 0%); } }
 body {
   font-family: Roboto, Arial;
-  text-align: center;
-  padding-top: 150px; }
+  text-align: center; }
 
 .ks_button {
   text-decoration: none;
   display: inline-block;
+  margin: 10px 0;
   color: #fff;
   background: linear-gradient(to top, #4A90E2, rgba(74, 144, 226, 0.6));
   padding: 9px 33px;
@@ -1711,7 +1711,7 @@ body {
     position: absolute;
     right: 5px;
     top: 5px;
-    background: url("/kasipay_design/assets/img/cross.png") no-repeat;
+    background: url("http://localhost:5000/assets/img/cross.png") no-repeat;
     background-size: cover; }
   .popup .switcher_container {
     color: #5b5b65;
@@ -1743,6 +1743,16 @@ body {
     .popup .popup_title .added {
       color: #5b5b65;
       font-size: 15px; }
+      .popup .popup_title .added.error_text {
+        display: none; }
+  .popup.error {
+    margin: -69px auto 0 auto; }
+    .popup.error .popup_title .added {
+      display: none; }
+      .popup.error .popup_title .added.error_text {
+        display: block; }
+    .popup.error .kasipay_body_popup {
+      display: none; }
   .popup .kasipay_body_popup {
     background: #f2f6f9;
     background: -webkit-linear-gradient(#fff, #f2f6f9);
@@ -1798,19 +1808,19 @@ body {
   -o-transition: border-color .15s linear, box-shadow .15s linear;
   transition: border-color .15s linear, box-shadow .15s linear; }
   .ks_input.email, .ks_select.email {
-    background: url("/kasipay_design/assets/img/letter.svg") no-repeat;
+    background: url("http://localhost:5000/assets/img/letter.svg") no-repeat;
     background-size: 17px;
     background-position: 7px 11px; }
   .ks_input.provider, .ks_select.provider {
-    background: url("/kasipay_design/assets/img/provider.svg") no-repeat;
+    background: url("http://localhost:5000/assets/img/provider.svg") no-repeat;
     background-size: 16px 17px;
     background-position: 7px 10px; }
   .ks_input.phone, .ks_select.phone {
-    background: url("/kasipay_design/assets/img/phone.svg") no-repeat;
+    background: url("http://localhost:5000/assets/img/phone.svg") no-repeat;
     background-size: 17px 17px;
     background-position: 7px 10px; }
   .ks_input.password, .ks_select.password {
-    background: url("/kasipay_design/assets/img/tool.svg") no-repeat;
+    background: url("http://localhost:5000/assets/img/tool.svg") no-repeat;
     background-size: 17px 17px;
     background-position: 7px 10px; }
   .ks_input:focus, .ks_select:focus {
@@ -1832,7 +1842,7 @@ body {
     box-shadow: inset 0 1px 2px transparent, 0 1px 0 rgba(255, 255, 255, 0), 0 0 2px 0 rgba(255, 0, 0, 0.5); }
 
 .select_container {
-  background: url("/kasipay_design/assets/img/arrow.svg") no-repeat;
+  background: url("http://localhost:5000/assets/img/arrow.svg") no-repeat;
   background-position: top 15px right 10px;
   background-size: 14px 7px; }
 

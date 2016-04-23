@@ -1958,8 +1958,9 @@
 //document constructs
 document.addEventListener('DOMContentLoaded', function(event) {
     //add css link
-    var domain = '/kasipay_design';
-    var linkId = 'kasipay_link';
+    //var domain = '/kasipay_design';
+    var domain = 'http://127.0.0.1:5000';
+   var linkId = 'kasipay_link';
     if(!document.getElementById(linkId)) {
         var head  = document.getElementsByTagName('head')[0];
         var link  = document.createElement('link');
@@ -1984,8 +1985,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     var popup_template = '' +
         '<a href="#" class="ks_cross"></a>' +
         '<div class="popup_title">' +
-        '<p>Kasipay payment</p>' +
-        '<p class="added">Test payment with kasipay</p>' +
+        '<p class="ks_title">Kasipay payment</p>' +
+        '<p class="added ks_log_output">Test payment with kasipay</p>' +
+        '<p class="added error_text">Sorry, error occured</p>' +
         '</div> ' + //popup title end
         '<form action="#" class="kasipay_body_popup">' +
         '<div class="input_container">' +
@@ -2002,7 +2004,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         '<input type="number" class="ks_input phone" placeholder="Phone" name="phone" required/>' +
         '</div>' +
         '<div class="input_container">' +
-        '<input type="text" class="ks_input password" placeholder="Password" name="password" required/>' +
+        '<input type="password" class="ks_input password" placeholder="Password" name="password" required/>' +
         '</div>' +
         '<div class="input_container switcher_container">' +
         '<label>' +
@@ -2024,12 +2026,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     //events and calls
     var ks_timeout;
+    var obj = {};
     button.addEventListener('click', function(event) {
         popup.classList.add('active');
+        popup.classList.remove('error');
     });
     document.querySelector('.ks_cross').addEventListener('click', function() {
         popup.classList.remove('active');
-    })
+    });
     var elem = document.querySelector('.js-switch');
     var init = new Switchery(elem, { size: 'small' });
 
@@ -2045,30 +2049,46 @@ document.addEventListener('DOMContentLoaded', function(event) {
         }
         else {
             this.email.classList.remove('error');
+            obj.email = this.email.value;
         }
         if(!this.password.value.length) {
             this.password.classList.add('error');
         }
         else {
             this.password.classList.remove('error');
+            obj.password = this.password.value;
         }
         if(!this.phone.value.length) {
             this.phone.classList.add('error');
         }
         else {
             this.phone.classList.remove('error');
+            obj.phone = this.phone.value;
         }
         if(this.provider.classList.contains('inactive')) {
             this.provider.classList.add('error');
         }
         else {
             this.provider.classList.remove('error');
+            obj.provider = this.provider.value;
         }
         if(document.getElementsByClassName('error').length) {
-           alert('error')
         }
         else {
-            alert('submit');
+            popup.classList.add('error');
+            obj.remember = this.remember.value;
+            obj.sum = document.getElementById('kas_sum').value;
+            obj.domain = window.location.href;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', domain + '/kasiApi/pay', false);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+            xhr.send(JSON.stringify(obj));
+            if (xhr.status != 200) {
+                console.log( xhr.status + ': ' + xhr.statusText );
+            } else {
+                console.log( xhr.responseText );
+            }
         }
     })
 });

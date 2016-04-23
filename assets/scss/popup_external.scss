@@ -2295,17 +2295,17 @@ Copyright (c) 2014 Christian Pucci
 
 
 $green: #6FCA9C;
-$domain: '/kasipay_design/assets/';
+$domain: 'http://localhost:5000/assets/';
 
 body {
   font-family: Roboto, Arial;
   text-align: center;
-  padding-top: 150px;
 }
 
 .ks_button {
   text-decoration: none;
   display: inline-block;
+  margin: 10px 0;
   color: #fff;
   background: linear-gradient(to top, #4A90E2, rgba(74, 144, 226, 0.6));
   padding: 9px 33px;
@@ -2399,8 +2399,27 @@ body {
     .added {
       color: #5b5b65;
       font-size: 15px;
+      &.error_text {
+        display: none;
+      }
     }
   }
+  //.poup title
+  &.error {
+    margin: -69px auto 0 auto;
+    .popup_title {
+      .added {
+        display: none;
+        &.error_text {
+          display: block;
+        }
+      }
+    }
+    .kasipay_body_popup {
+      display: none;
+    }
+  }
+  //.error
   .kasipay_body_popup {
     background: #f2f6f9;
     background: -webkit-linear-gradient(#fff, #f2f6f9);
