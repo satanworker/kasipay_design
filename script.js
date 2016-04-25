@@ -1958,16 +1958,29 @@
 //document constructs
 document.addEventListener('DOMContentLoaded', function(event) {
     //add css link
-    //var domain = '/kasipay_design';
-    var domain = 'http://127.0.0.1:5000';
+    //var domain = './';
+    var domain = 'http://50.16.140.239';
+    //var domain = 'http://127.0.0.1:5000';
    var linkId = 'kasipay_link';
     if(!document.getElementById(linkId)) {
-        var head  = document.getElementsByTagName('head')[0];
+        var head  = document.getElementsByTagName('body')[0];
         var link  = document.createElement('link');
         link.id   = linkId;
         link.rel  = 'stylesheet';
         link.type = 'text/css';
         link.href = domain + '/assets/scss/popup_external.css';
+        link.media = 'all';
+        head.appendChild(link);
+    }
+
+    var font_id = 'kasipay_fonts';
+    if(!document.getElementById(font_id)) {
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+        link.id   = font_id;
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300';
         link.media = 'all';
         head.appendChild(link);
     }
@@ -1982,7 +1995,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     var popup = document.createElement('div');
     popup.classList.add('popup', 'magictime', 'puffIn');
     popup.id = 'pay_popup';
-    var popup_template = '' +
+    var popup_template = '<div class="popup_blob">' +
         '<a href="#" class="ks_cross"></a>' +
         '<div class="popup_title">' +
         '<p class="ks_title">Kasipay payment</p>' +
@@ -1991,19 +2004,23 @@ document.addEventListener('DOMContentLoaded', function(event) {
         '</div> ' + //popup title end
         '<form action="#" class="kasipay_body_popup">' +
         '<div class="input_container">' +
+        '<span class="error_badge">Email is not correct</span>' +
         '<input type="email" class="ks_input email" placeholder="Email" name="email" required> ' +
         '</div>' + //input container
         '<div class="select_container">' +
+        '<span class="error_badge">Please select provider</span>' +
         '<select class="ks_select inactive provider" name="provider" required>' +
         '<option disabled selected>Select your provider</option>' +
-        '<option>Typo Pesa</option>' +
+        '<option>TiGo Pesa</option>' +
         '<option>M-Pesa</option>' +
         '</select>' +
         '</div>' + //select container
         '<div class="input_container">' +
+        '<span class="error_badge">Must be less than 10 numbers</span>' +
         '<input type="number" class="ks_input phone" placeholder="Phone" name="phone" required/>' +
         '</div>' +
         '<div class="input_container">' +
+        '<span class="error_badge">Must be less than 4 numbers</span>' +
         '<input type="password" class="ks_input password" placeholder="Password" name="password" required/>' +
         '</div>' +
         '<div class="input_container switcher_container">' +
@@ -2015,7 +2032,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
         '<div class="input_container">' +
         '<input type="submit" value="Submit" class="ks_button green submit"/>' +
         '</div>' +
-        '</form>';
+        '</form>' +
+        '</div>';
     popup.innerHTML = popup_template;
     //popup inser
     document.body.appendChild(popup);
@@ -2034,6 +2052,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
     document.querySelector('.ks_cross').addEventListener('click', function() {
         popup.classList.remove('active');
     });
+    document.querySelector('.popup').addEventListener('click', function(event) {
+       this.classList.remove('active');
+    });
+    document.querySelector('.popup_blob').addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+
     var elem = document.querySelector('.js-switch');
     var init = new Switchery(elem, { size: 'small' });
 
@@ -2045,34 +2070,35 @@ document.addEventListener('DOMContentLoaded', function(event) {
         event.preventDefault();
 
         if(!this.email.value.length) {
-            this.email.classList.add('error');
+            this.email.parentNode.classList.add('error');
         }
         else {
-            this.email.classList.remove('error');
+            this.email.parentNode.classList.remove('error');
             obj.email = this.email.value;
         }
-        if(!this.password.value.length) {
-            this.password.classList.add('error');
+        if(!this.password.value.length || this.password.length < 4 ) {
+            this.password.parentNode.classList.add('error');
         }
         else {
-            this.password.classList.remove('error');
+            this.password.parentNode.classList.remove('error');
             obj.password = this.password.value;
         }
-        if(!this.phone.value.length) {
-            this.phone.classList.add('error');
+        if(!this.phone.value.length || this.phone.value.length > 10) {
+            this.phone.parentNode.classList.add('error');
         }
         else {
-            this.phone.classList.remove('error');
+            this.phone.parentNode.classList.remove('error');
             obj.phone = this.phone.value;
         }
         if(this.provider.classList.contains('inactive')) {
-            this.provider.classList.add('error');
+            this.provider.parentNode.classList.add('error');
         }
         else {
-            this.provider.classList.remove('error');
+            this.provider.parentNode.classList.remove('error');
             obj.provider = this.provider.value;
         }
         if(document.getElementsByClassName('error').length) {
+            console.log('error');
         }
         else {
             popup.classList.add('error');
